@@ -82,11 +82,6 @@ window.etherglade.prototype.generateEthergladeXComponent = function(contractID) 
                         #${id}.${CLASS.XCOMPONENT}-context-${CONTEXT.IFRAME} .${CLASS.OUTLET} {
                             box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.4);
                             
-                            transform: translate3d(-50%, -50%, 0);
-                            -webkit-transform: translate3d(-50%, -50%, 0);
-                            -moz-transform: translate3d(-50%, -50%, 0);
-                            -o-transform: translate3d(-50%, -50%, 0);
-                            -ms-transform: translate3d(-50%, -50%, 0);
                         }
     
                         #${id}.${CLASS.XCOMPONENT}-context-${CONTEXT.IFRAME} .${CLASS.OUTLET} {

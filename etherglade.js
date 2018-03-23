@@ -146,7 +146,6 @@ window.etherglade.prototype.generateEthergladeXComponent = function(contractID) 
     
                         #${ id } > .${ CLASS.OUTLET } > iframe.${ CLASS.PRERENDER_FRAME } {
                             z-index: 15000 !important;
-                            border-radius: 10px;
                         }
     
                         #${id} .${CLASS.XCOMPONENT}-close {
@@ -181,6 +180,7 @@ window.etherglade.prototype.generateEthergladeXComponent = function(contractID) 
                         }
 
                         .${CLASS.OUTLET} {
+                            border-radius: 10px;
                             overflow: hidden;
                         }
                     `

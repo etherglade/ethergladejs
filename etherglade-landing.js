@@ -103,11 +103,11 @@ window.etherglade.prototype.generateEthergladeXComponent = function(contractID) 
     
                         #${ id } > .${ CLASS.OUTLET } > iframe.${ CLASS.PRERENDER_FRAME } {
                             z-index: 15000;
+                            border-radius: 10px;
                         }
 
                         .${CLASS.OUTLET} {
                             overflow: hidden;
-                            border-radius: 10px;
                         }
                     `
                 )

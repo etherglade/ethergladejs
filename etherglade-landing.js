@@ -59,7 +59,7 @@ window.etherglade.prototype.generateEthergladeXComponent = function(contractID) 
     
         // The url that will be loaded in the iframe or popup, when someone includes my component on their page
     
-        url:  'https://keen-noether-318f35.netlify.com/' + contractID,
+        url:  'https://keen-noether-318f35.netlify.com/#/' + contractID,
     
         // The background overlay
     

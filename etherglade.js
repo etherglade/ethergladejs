@@ -98,6 +98,7 @@ window.etherglade.prototype.generateEthergladeXComponent = function(contractID) 
                             width: 100%;
                             height: 100%;
                             background-color: rgba(0, 0, 0, 0.8);
+                            z-index: 15000 !important;
                         }
     
                         #${id}.${CLASS.XCOMPONENT}-context-${CONTEXT.POPUP} {

@@ -139,12 +139,12 @@ window.etherglade.prototype.generateEthergladeXComponent = function(contractID) 
                         }
     
                         #${ id } > .${ CLASS.OUTLET } > iframe.${ CLASS.COMPONENT_FRAME } {
-                            z-index: 15000;
+                            z-index: 15000 !important;
                             border-radius: 10px;
                         }
     
                         #${ id } > .${ CLASS.OUTLET } > iframe.${ CLASS.PRERENDER_FRAME } {
-                            z-index: 15000;
+                            z-index: 15000 !important;
                         }
     
                         #${id} .${CLASS.XCOMPONENT}-close {

@@ -80,7 +80,7 @@ window.etherglade.prototype.generateEthergladeXComponent = function(contractID) 
 
                    
                         #${id}.${CLASS.XCOMPONENT}-context-${CONTEXT.IFRAME} .${CLASS.OUTLET} {
-                            box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.4);
+                            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
                             
                         }
     

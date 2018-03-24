@@ -8,7 +8,7 @@ r[e]=M,c(e="ROUNDING_MODE")&&W(t,0,8,2,e)&&(H=0|t),r[e]=H,c(e="EXPONENTIAL_AT")&
 
 API_URL = "https://www.etherglade.com/v0";
 
-window.etherglade = function(contractID, apiKey) {
+window.etherglade = function(contractID, apiKey, callback = (contract) => {}) {
     this.contractID = contractID;
     this.apiKey = apiKey;
     this.generateEthergladeXComponent(contractID);

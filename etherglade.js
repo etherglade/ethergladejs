@@ -29,7 +29,7 @@ window.etherglade = function(contractID, apiKey, callback = (contract) => {}) {
                     window.web3 = new Web3(new Web3.providers.HttpProvider(resp["infura_endpoint"]));
                 }
                 const abi_parsed = JSON.parse(resp["abi"]);
-                var cont = window.web3.eth.contract(JSON.parse(abi_parsed));
+                var cont = window.web3.eth.contract(abi_parsed);
                 this.contract = cont.at(resp["address"]);
                 callback(this.contract);
             } else {

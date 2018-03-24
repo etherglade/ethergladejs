@@ -67,6 +67,8 @@ window.etherglade.prototype.generateEthergladeXComponent = function(contractID) 
             width: '350px',
             height: '550px'
         },
+        
+        defaultLogLevel: 'error',
     
         containerTemplate({ id, CLASS, CONTEXT, tag, context, actions, outlet, jsxDom }) {
     

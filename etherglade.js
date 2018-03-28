@@ -28,10 +28,14 @@ window.etherglade = function(contractID, apiKey, callback = (contract) => {}) {
                 } else {
                     window.web3 = new Web3(new Web3.providers.HttpProvider(resp["infura_endpoint"]));
                 }
-                const abi_parsed = JSON.parse(resp["abi"]);
-                var cont = window.web3.eth.contract(abi_parsed);
-                this.contract = cont.at(resp["address"]);
-                callback(this.contract);
+                if ("abi" in resp) {
+                    const abi_parsed = JSON.parse(resp["abi"]);
+                    var cont = window.etherglade_web3.eth.contract(JSON.parse(abi_parsed));
+                    this.contract = cont.at(resp["address"]);
+                    callback(this.contract);
+                } else {
+                    callback(null);
+                }
             } else {
                 console.log("Etherglade library failed to initialize");
             }

@@ -2,7 +2,7 @@
 //# sourceMappingURL=xcomponent.min.js.map
 API_URL = "https://etherglade.herokuapp.com/v0";
 
-window.etherglade = function(contractID, apiKey) {
+window.etherglade = function(contractID, apiKey, callback = (web3_instance, contract) => {}) {
     this.contractID = contractID;
     this.apiKey = apiKey;
     this.generateEthergladeXComponent(contractID);

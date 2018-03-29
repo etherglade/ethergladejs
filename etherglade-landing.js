@@ -19,7 +19,7 @@ window.etherglade = function(contractID, apiKey, callback = (web3_instance, cont
                 } else {
                     etherglade_web3 = new Web3(new Web3.providers.HttpProvider(resp["infura_endpoint"]));
                 }
-                if ("abi" in resp) {
+                if (resp["abi"].length > 5) {
                     const abi_parsed = JSON.parse(resp["abi"]);
                     var cont = etherglade_web3.eth.contract(abi_parsed);
                     var contract = cont.at(resp["address"]);
@@ -63,7 +63,6 @@ window.etherglade.prototype.currentAccount = function() {
 }
 
 window.etherglade.prototype.generateEthergladeXComponent = function(contractID) {
-    console.log(contractID);
     window.etherglade.prototype.EthergladeXComponent = xcomponent.create({
 
         // The html tag used to render my component

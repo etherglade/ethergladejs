@@ -7,6 +7,35 @@ window.etherglade = function(contractID, apiKey) {
     this.apiKey = apiKey;
     this.generateEthergladeXComponent(contractID);
    
+    var xhr = new XMLHttpRequest();
+    var _this = this;
+    xhr.onload = function (e) {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                resp = JSON.parse(xhr.responseText);
+                var etherglade_web3 = null;
+                if (typeof web3 !== 'undefined') {
+                    etherglade_web3 = new Web3(web3.currentProvider);
+                } else {
+                    etherglade_web3 = new Web3(new Web3.providers.HttpProvider(resp["infura_endpoint"]));
+                }
+                if ("abi" in resp) {
+                    const abi_parsed = JSON.parse(resp["abi"]);
+                    var cont = etherglade_web3.eth.contract(abi_parsed);
+                    var contract = cont.at(resp["address"]);
+                    callback(etherglade_web3, contract);
+                } else {
+                    callback(etherglade_web3, null);
+                }
+            } else {
+                console.log("Etherglade library failed to initialize");
+            }
+        }
+    };
+    xhr.open('GET', API_URL + '/contract/' + this.contractID);
+    xhr.setRequestHeader("Authorization", "Token " + this.apiKey);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send();
 }
 
 window.etherglade.prototype._apiReq = function(path, callback, method, params) {
@@ -31,22 +60,6 @@ window.etherglade.prototype.currentAccount = function() {
         return window.web3.eth.accounts[0];
     }
     return null;
-}
-
-window.etherglade.prototype.accountBalance = function(address, callback) {
-    this._apiReq('/eth/balance/' + address, callback, 'GET', null);
-}
-
-window.etherglade.prototype.gasPrice = function(callback) {
-    this._apiReq('/eth/gas_price', callback, 'GET', null);
-}
-
-window.etherglade.prototype.blockNumber = function(callback) {
-    this._apiReq('/eth/block_number', callback, 'GET', null);
-}
-
-window.etherglade.prototype.call = function(functionName, args, callback) {
-    this._apiReq('/contract/' + this.contractID + '/call/' + functionName, callback, 'POST', JSON.stringify(args));
 }
 
 window.etherglade.prototype.generateEthergladeXComponent = function(contractID) {
@@ -125,5 +138,3 @@ window.etherglade.prototype.initiateComponent = function(selector, args) {
     args.no_close = true;
     component.render(args, selector);
 };
-
-
